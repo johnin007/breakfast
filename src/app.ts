@@ -10,13 +10,13 @@ import * as NProgress from 'nprogress';
  * Solution Provided by @sho-pb
  * @returns {AppRouterInstance}
  */
-export let useRouter = (): AppRouterInstance => {
-  let router = useNextRouter();
-  let pathname = usePathname();
+export const useRouter = (): AppRouterInstance => {
+  const router = useNextRouter();
+  const pathname = usePathname();
   useEffect(() => {
     NProgress.done();
   }, [pathname]);
-  let replace = useCallback(
+  const replace = useCallback(
     (href: string, options?: NavigateOptions) => {
       href !== pathname && NProgress.start();
       router.replace(href, options);
@@ -24,7 +24,7 @@ export let useRouter = (): AppRouterInstance => {
     [router, pathname]
   );
 
-  let push = useCallback(
+  const push = useCallback(
     (href: string, options?: NavigateOptions) => {
       href !== pathname && NProgress.start();
       router.push(href, options);
