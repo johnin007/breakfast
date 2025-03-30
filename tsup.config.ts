@@ -1,5 +1,5 @@
 import { Options } from 'tsup';
-export let tsup: Options = {
+export const tsup: Options = {
   target: 'es6',
   clean: true,
   dts: true,
